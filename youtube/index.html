@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html style = "background-color: #fff2e6;" id = "color">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>YouTube 心情點唱機</h1>
+        <h2 id = "songName"></h2><!--播放歌曲名稱放這裡-->
+        <div style="margin:0 auto">
+            <img src="dance.gif" style = "height:200px;width:200;margin-bottom: 50px;margin-left: 20px;">&nbsp&nbsp&nbsp&nbsp
+            <img src="left_grey.png" id="left" style = "height:100px;width:100px;margin-bottom: 150px;" onmouseover = "turnBlue(1)" onmouseout = "turnGrey(1)">&nbsp&nbsp&nbsp&nbsp
+            <div id="player"></div>&nbsp&nbsp&nbsp&nbsp<!-- YouTube Video Player -->
+            <img src="right_grey.png" id="right" style = "height:100px;width:100px;margin-bottom: 150px;" onmouseover = "turnBlue(2)" onmouseout = "turnGrey(2)">
+            <img src="dance2.gif" style = "height:300px;width:300px;margin-bottom: 30px;">&nbsp&nbsp&nbsp&nbsp
+        </div>
+        <br><br>
+        <input id="playButton" type="button" value="Play">
+        <div id="choose" style = "background-color: #ffd9b3;width:80%;height:200px;margin-top: 20px;text-align: center;margin:0 auto;">
+            <p style = "font-size: 24px;padding-top: 70px;">音樂類型:&nbsp&nbsp<span id="musicStyle">我隨便幫你播</span></p>
+
+            <input class="styleBtn" type="button" value="我隨便幫你播" onclick="setStyle('我隨便幫你播')">&nbsp&nbsp
+            <input class="styleBtn" type="button" value="我的主題曲" onclick="setStyle('我的主題曲')">&nbsp&nbsp
+            <input class="styleBtn" type="button" value="我推薦的慢歌" onclick="setStyle('我推薦的慢歌')">&nbsp&nbsp
+            <input class="styleBtn" type="button" value="我推薦的快歌" onclick="setStyle('我推薦的快歌')">
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="playList.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

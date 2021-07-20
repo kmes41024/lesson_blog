@@ -1,0 +1,58 @@
+//YouTube Video ID
+let playLists = [
+    [
+        "pj4JYmEYG_A",
+        "SwZMS-ISbH4",
+        "pthsAgK6DMY",
+        "486MNeZJ5e0",
+        "uOQ-UVwF8yg",
+        "XM2KwT7_0bQ",
+        "2FlFrn4dUOI",
+        "GWHruk3Esf4",
+        "BrlWr6_9ncY"
+    ],
+    [
+        "486MNeZJ5e0",
+        "uOQ-UVwF8yg",
+        "pj4JYmEYG_A"
+    ],
+    [
+        "XM2KwT7_0bQ",
+        "2FlFrn4dUOI",
+        "GWHruk3Esf4"
+    ],
+    [
+        "pthsAgK6DMY",
+        "SwZMS-ISbH4",
+        "BrlWr6_9ncY"
+    ]
+];
+
+let playTimes = [
+    [
+        [0,12],
+        [101,109],
+        [73,81],
+        [21,41],
+        [20,32],
+        [55,68],
+        [56,69],
+        [113,125],
+        [54,63]
+    ],
+    [
+        [20,32],
+        [55,68],
+        [0,12]
+    ],
+    [
+        [21,41],
+        [56,69],
+        [113,125]
+    ],
+    [
+        [73,81],
+        [101,109],
+        [54,63]
+    ]
+];

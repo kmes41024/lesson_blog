@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!--https://bookmarks.tw/pdp/-->
+        <!--可做sort，將分數相同的排在同個row-->
+        <h1 id="title">PDP 心理測驗 (蠟筆小新ver.)</h1>
+        <div>
+            <h2 id="question"></h2>
+            <div id="options"></div>
+            <div id="result" style="display: none;">
+                <table border="1px solid black">
+                    <tr>
+                        <th>人物</th>
+                        <th>特質</th>
+                        <th>得分</th>
+                    </tr>
+                    <tr id="r0">
+                        <td>
+                            <img src="" width="200px" height="200px" id="img0">
+                        </td>
+                        <td>
+                            <p id="style0" class="style"></p><br>
+                            <p id="info0" class="info"></p>
+                            <p class="detial">
+                                <a href="" id="detail0" target="_blank">(詳細說明...)</a>
+                            </p>
+                        </td>
+                        <td>
+                            <p id="score0" class="score"></p>
+                        </td>
+                    </tr>
+                    <tr id="r1">
+                        <td>
+                            <img src="" width="200px" height="200px" id="img1">
+                        </td>
+                        <td>
+                            <p id="style1" class="style"></p><br>
+                            <p id="info1" class="info"></p>
+                            <p class="detial">
+                                <a href="" id="detail1" target="_blank">(詳細說明...)</a>
+                            </p>
+                        </td>
+                        <td>
+                            <p id="score1" class="score"></p>
+                        </td>
+                    </tr>
+                    <tr id="r2">
+                        <td>
+                            <img src="" width="200px" height="200px" id="img2">
+                        </td>
+                        <td>
+                            <p id="style2" class="style"></p><br>
+                            <p id="info2" class="info"></p>
+                            <p class="detial">
+                                <a href="" id="detail2" target="_blank">(詳細說明...)</a>
+                            </p>
+                        </td>
+                        <td>
+                            <p id="score2" class="score"></p>
+                        </td>
+                    </tr>
+                    <tr id="r3">
+                        <td>
+                            <img src="" width="200px" height="200px" id="img3">
+                        </td>
+                        <td>
+                            <p id="style3" class="style"></p><br>
+                            <p id="info3" class="info"></p>
+                            <p class="detial">
+                                <a href="" id="detail3" target="_blank">(詳細說明...)</a>
+                            </p>
+                        </td>
+                        <td>
+                            <p id="score3" class="score"></p>
+                        </td>
+                    </tr>
+                    <tr id="r4">
+                        <td>
+                            <img src="" width="200px" height="200px" id="img4">
+                        </td>
+                        <td>
+                            <p id="style4" class="style"></p><br>
+                            <p id="info4" class="info"></p>
+                            <p class="detial">
+                                <a href="" id="detail4" target="_blank">(詳細說明...)</a>
+                            </p>
+                        </td>
+                        <td>
+                            <p id="score4" class="score"></p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div id="btns">
+            <input id="forwardButton" type="button" value="Before" style="display: none;">&nbsp&nbsp
+            <input id="startButton" type="button" value="開始作答">
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="data.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>1073320</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+  <script>
+    var player = "O";
+    var computer = "X";
+    var chess = new Array(9);		//用來存每格被下的棋
+    var turn;
+    var s1 = 0;
+    var s2 = 0;
+
+    function newGame()				//初始遊戲
+    {
+      for(var i = 0; i < 9; i++)
+      {
+        chess[i] = '-';
+        document.getElementById("box"+i).innerHTML = "";
+      }
+      //turn = Math.floor(Math.random()*2); 	//0 = computer || 1 = player
+      turn = 1;
+      /*$(function() {					//彈跳視窗
+        $( "#dialog" ).dialog({
+          modal: true,           //為true時 沒辦法點遠原畫面的東西(是否為強制視窗)
+          buttons: {              // 定義按鈕與其回呼函數等 (陣列或物件)
+            X: function() {
+              player="X";
+              computer="O";
+              $( this ).dialog( "close" );
+              if(turn == 0)
+              {
+                computerPlay();
+              }
+            },
+            O:function()
+            {
+              player = "O";
+              computer = "X";
+              $( this ).dialog( "close" );
+              if(turn == 0)
+              {
+                computerPlay();
+              }
+            }
+          }
+        });
+      });*/
+      
+      player = "O";
+      computer = "X";
+      if(turn == 2)
+      {
+        computerPlay();
+      }
+    }
+
+    /*function computerPlay()				//電腦下棋
+    {
+      var flag = 0;
+      var place;
+      while(flag == 0)
+      {
+        place = Math.floor(Math.random()*9);			//產生0~8隨機數
+        if(chess[place] != 'O' && chess[place] != 'X')		//判斷隨機數產生的位置是否已經被下過
+        {
+          //document.getElementById("box"+place).innerHTML = computer;
+          document.getElementById("box"+place).innerHTML = "<img src='assets/img/game2/head1.png' style='width:80px;height:80px;'>";
+          chess[place] = computer;
+          flag = 1;
+        }
+      }
+      
+      if(isWin(computer) == true)			//判斷是否連線
+      {
+        result("computer");
+      }
+      else if(isFull() == true)			//判斷棋盤是否已被下滿
+      {
+        result("tie");
+      }
+
+      turn = 1;
+      document.getElementById("player").setAttribute("src","assets/img/game2/head2.png");
+      document.getElementById("computer").setAttribute("src","assets/img/game2/head1_2.png");
+    }*/
+
+    function playerPlay(place)			//玩家下棋
+    {
+      if(chess[place] != 'O' && chess[place] != 'X')
+      {
+        //document.getElementById("box"+place).innerHTML = player;
+        document.getElementById("box"+place).innerHTML = "<img src='assets/img/game2/head2.png' style='width:80px;height:80px;'>";
+        chess[place] = player;
+
+        if(isWin(player) == true)		//判斷是否連線
+        {
+          result("player");
+        }
+        else if(isFull() == true)		//判斷棋盤是否已被下滿
+        {
+          result("tie");
+        }
+        else							//玩家結束後若沒有連線或是造成平手，則輪到電腦下棋
+        {
+          //computerPlay();
+        }
+      }
+
+      turn = 2;
+      document.getElementById("player").setAttribute("src","assets/img/game2/head2_2.png");
+      document.getElementById("computer").setAttribute("src","assets/img/game2/head1.png");
+    }
+
+    function computerPlay(place)			//電腦下棋
+    {
+      if(chess[place] != 'O' && chess[place] != 'X')
+      {
+        //document.getElementById("box"+place).innerHTML = player;
+        document.getElementById("box"+place).innerHTML = "<img src='assets/img/game2/head1.png' style='width:80px;height:80px;'>";
+        chess[place] = computer;
+
+        if(isWin(computer) == true)		//判斷是否連線
+        {
+          result("computer");
+        }
+        else if(isFull() == true)		//判斷棋盤是否已被下滿
+        {
+          result("tie");
+        }
+      }
+
+      turn = 1;
+      document.getElementById("player").setAttribute("src","assets/img/game2/head2.png");
+      document.getElementById("computer").setAttribute("src","assets/img/game2/head1_2.png");
+    }
+
+    function checkTurn(place)
+    {
+      if(turn == 1)
+      {
+        playerPlay(place);
+      }
+      else
+      {
+        computerPlay(place);
+      }
+    }
+
+    function isFull()		//判斷棋盤是否已被下滿
+    {
+      for(var i = 0; i < 9; i++)
+      {
+        if(chess[i] != 'X' && chess[i] != 'O')
+        {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function isWin(symbol)		//判斷是否連線
+    {
+      //直的
+      for(var i = 0; i < 3; i++)
+      {
+        var count = 0;
+        for(var j = 0; j < 3; j++)
+        {
+          if(chess[i + 3 * j] == symbol)
+          {
+            count++;
+          }
+        }
+
+        if(count == 3)
+        {
+          return true;
+        }
+      }
+
+      //橫的
+      for(var i = 0; i < 9; i = i + 3)
+      {
+        var count = 0;
+        for(var j = 0; j < 3; j++)
+        {
+          if(chess[i + j] == symbol)
+          {
+            count++;
+          }
+        }
+        if(count == 3)
+        {
+          return true;
+        }
+      }
+
+      //斜的
+      if(chess[0] == symbol && chess[4] == symbol && chess[8] == symbol)
+      {
+        return true;
+      }
+      if(chess[2] == symbol && chess[4] == symbol && chess[6] == symbol)
+      {
+        return true;
+      }
+    }
+
+    function result(winner)
+    {
+      if(winner == "computer")
+      {
+        window.alert("QQ，哥哥竟然被妹妹打敗了");
+        s2 += 1;
+        document.getElementById("score2").innerHTML = s2;
+      }
+      else if(winner == "player")
+      {
+        window.alert("恭喜!小新你贏小葵了!");
+        s1 += 1;
+        document.getElementById("score1").innerHTML = s1;
+      }
+      else
+      {
+        window.alert("大家繼續加油!");
+      }
+
+      newGame();
+    }
+
+    window.addEventListener("load",newGame,false);
+  </script>
+  <body style="background-color: #e9f4f7 ;font-family: Microsoft JhengHei;">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #4D6091;">
+        <img src="assets/img/pic.png" style="height:50px;width:75px">&nbsp&nbsp
+        <a class="navbar-brand" href="index.html" style="color:white"><strong>小新的部落格</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mindQuiz.html">MindQuiz</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="youtube.html">YouTube</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rpg.html">RPG</a>
+            </li>
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false" style="color: yellow;">
+                Portfolios  <span class="sr-only">(current)</span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="game1.html" style="color: rgb(186, 186, 186);">Portfolio 1</a></li>
+                <li><a class="dropdown-item" href="game2.html" style="color: black;">Portfolio 2</a></li>
+                <li><a class="dropdown-item" href="game3.html" style="color: rgb(186, 186, 186);">Portfolio 3</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="games.html" style="color: rgb(186, 186, 186);">See All</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutMe.html">About Me</a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" style="background-color: #DBDFE9;">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: #DBDFE9;border-color: #DBDFE9;">Search</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <main role="main">
+     <!-- START THE FEATURETTES -->
+      <hr class="featurette-divider">
+        <div style="margin:0px auto;text-align: center;padding-left: -30px;">
+          <h2><strong>兄妹世紀大對決 - OOXX</strong></h2>
+        </div>
+        <br>
+        <table style="margin: 0px auto;width:80%">
+          <tr>
+            <td style="width:20%; text-align: center;">
+              <p style="font-size: 24px;"><strong>player1: 小新</strong></p>
+              <img src="assets/img/game2/head2.png" style="height:200px;width:200px" id="player">
+              <p id="score1" style="font-size: 36px;"><strong>0</strong></p>
+            </td>
+            <td>
+              <div style="width:400px;height:400px;margin: 0px auto;border: black;padding-left: 35px;padding-top:30px">
+                <table>
+                  <tr>
+                    <td id="box0" onclick="checkTurn(0)" style="width:100px;height:100px;background-color: #C2C2FF;text-align: center;"></td>
+                    <td style="width:10px;"></td>
+                    <td id="box1" onclick="checkTurn(1)" style="width:100px;height:100px;background-color: #C2C2FF;text-align: center;"></td>
+                    <td style="width:10px;"></td>
+                    <td id="box2" onclick="checkTurn(2)" style="width:100px;height:100px;background-color: #C2C2FF;text-align: center;"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="5" style="height:10px;"></td>
+                  </tr>
+                  <tr>
+                    <td id="box3" onclick="checkTurn(3)" style="width:100px;height:100px;background-color: #C2C2FF;text-align: center;"></td>
+                    <td style="width:10px;"></td>
+                    <td id="box4" onclick="checkTurn(4)" style="width:100px;height:100px;background-color: #C2C2FF;text-align: center;"></td>
+                    <td style="width:10px;"></td>
+                    <td id="box5" onclick="checkTurn(5)" style="width:100px;height:100px;background-color: #C2C2FF;text-align: center;"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="5" style="height:10px;"></td>
+                  </tr>
+                  <tr>
+                    <td id="box6" onclick="checkTurn(6)" style="width:100px;height:100px;background-color: #C2C2FF;text-align: center;"></td>
+                    <td style="width:10px;"></td>
+                    <td id="box7" onclick="checkTurn(7)" style="width:100px;height:100px;background-color: #C2C2FF;text-align: center;"></td>
+                    <td style="width:10px;"></td>
+                    <td id="box8" onclick="checkTurn(8)" style="width:100px;height:100px;background-color: #C2C2FF;text-align: center;"></td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td style="width:20%;text-align: center;">
+              <p style="font-size: 24px;"><strong>player2: 小葵</strong></p>
+              <img src="assets/img/game2/head1_2.png" style="height:200px;width:200px" id="computer">
+              <p id="score2" style="font-size: 36px;"><strong>0</strong></p>
+            </td>
+          </tr>
+        </table>
+      
+
+      <hr class="featurette-divider"> 
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="assets/js/vendor/holder.min.js"></script>
+  </body>
+</html>

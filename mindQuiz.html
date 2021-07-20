@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>1073320</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="mindQuiz/style.css">
+  </head>
+  <body style="background-color: #e9f4f7 ;font-family: Microsoft JhengHei;">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #4D6091;">
+        <img src="assets/img/pic.png" style="height:50px;width:75px">&nbsp&nbsp
+        <a class="navbar-brand" href="index.html" style="color:white"><strong>小新的部落格</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="mindQuiz.html" style="color: yellow;">MindQuiz <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="youtube.html">YouTube</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rpg.html">RPG</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                Portfolios
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="game1.html" style="color: rgb(186, 186, 186);">Portfolio 1</a></li>
+                <li><a class="dropdown-item" href="game2.html" style="color: rgb(186, 186, 186);">Portfolio 2</a></li>
+                <li><a class="dropdown-item" href="game3.html" style="color: rgb(186, 186, 186);">Portfolio 3</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="games.html" style="color: rgb(186, 186, 186);">See All</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutMe.html">About Me</a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" style="background-color: #DBDFE9;">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: #DBDFE9;border-color: #DBDFE9;">Search</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <main role="main">
+     <!-- START THE FEATURETTES -->
+      <hr class="featurette-divider">
+      <h1 id="title">PDP 心理測驗 (蠟筆小新ver.)</h1>
+      <div style="text-align: center;background-color: #D1DBDE;width:80%;margin:0px auto;border-radius: 30px;" id="quizBody">
+        <div>
+          <h2 id="question" style="padding-top: 20px;margin-top:20px"></h2>
+          <div id="options"></div>
+          <div id="result" style="display: none;">
+              <table border="1px solid black">
+                  <tr>
+                      <th>人物</th>
+                      <th>特質</th>
+                      <th>得分</th>
+                  </tr>
+                  <tr id="r0">
+                      <td>
+                          <img src="" width="200px" height="200px" id="img0">
+                      </td>
+                      <td>
+                          <p id="style0" class="style"></p><br>
+                          <p id="info0" class="info"></p>
+                          <p class="detial">
+                              <a href="" id="detail0" target="_blank">(詳細說明...)</a>
+                          </p>
+                      </td>
+                      <td>
+                          <p id="score0" class="score"></p>
+                      </td>
+                  </tr>
+                  <tr id="r1">
+                      <td>
+                          <img src="" width="200px" height="200px" id="img1">
+                      </td>
+                      <td>
+                          <p id="style1" class="style"></p><br>
+                          <p id="info1" class="info"></p>
+                          <p class="detial">
+                              <a href="" id="detail1" target="_blank">(詳細說明...)</a>
+                          </p>
+                      </td>
+                      <td>
+                          <p id="score1" class="score"></p>
+                      </td>
+                  </tr>
+                  <tr id="r2">
+                      <td>
+                          <img src="" width="200px" height="200px" id="img2">
+                      </td>
+                      <td>
+                          <p id="style2" class="style"></p><br>
+                          <p id="info2" class="info"></p>
+                          <p class="detial">
+                              <a href="" id="detail2" target="_blank">(詳細說明...)</a>
+                          </p>
+                      </td>
+                      <td>
+                          <p id="score2" class="score"></p>
+                      </td>
+                  </tr>
+                  <tr id="r3">
+                      <td>
+                          <img src="" width="200px" height="200px" id="img3">
+                      </td>
+                      <td>
+                          <p id="style3" class="style"></p><br>
+                          <p id="info3" class="info"></p>
+                          <p class="detial">
+                              <a href="" id="detail3" target="_blank">(詳細說明...)</a>
+                          </p>
+                      </td>
+                      <td>
+                          <p id="score3" class="score"></p>
+                      </td>
+                  </tr>
+                  <tr id="r4">
+                      <td>
+                          <img src="" width="200px" height="200px" id="img4">
+                      </td>
+                      <td>
+                          <p id="style4" class="style"></p><br>
+                          <p id="info4" class="info"></p>
+                          <p class="detial">
+                              <a href="" id="detail4" target="_blank">(詳細說明...)</a>
+                          </p>
+                      </td>
+                      <td>
+                          <p id="score4" class="score"></p>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div id="btns">
+          <input id="forwardButton" type="button" value="Before" style="display: none;">&nbsp&nbsp
+          <input id="startButton" type="button" value="開始作答">
+      </div>
+
+      <hr class="featurette-divider"> 
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="assets/js/vendor/holder.min.js"></script>
+    <script src="mindQuiz/data.js"></script>
+    <script src="mindQuiz/main.js"></script>
+  </body>
+</html>
